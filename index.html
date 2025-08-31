@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peoples Party of Demetheria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #351279; /* Deep purple for primary elements */
+            --secondary: #C5A333; /* Gold for secondary elements */
+            --light: #f8f9fa; /* Light background */
+            --dark: #212529; /* Dark text */
+            --gray: #6c757d; /* Gray elements */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(to right, var(--primary), #4a1ba0);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(53, 18, 121, 0.8), rgba(53, 18, 121, 0.9)), url('https://assets-learning.parliament.uk/uploads/2020/05/HOC-Chamber-scaled.jpg') center/cover no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        /* Party Goals */
+        .goals {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .goal-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .goal-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .goal-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Leadership Section */
+        .leadership {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .leader-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .leader-img {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .leader-info {
+            padding: 1.5rem;
+        }
+        
+        .leader-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .leader-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Channels Section */
+        .channels {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .channel-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .channel-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .channel-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .channel-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Discord Section */
+        .discord {
+            padding: 5rem 0;
+            background: linear-gradient(to right, var(--primary), #4a1ba0);
+            color: white;
+            text-align: center;
+        }
+        
+        .discord-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .discord h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .discord p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .discord-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .discord-btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .discord-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fas fa-landmark"></i></div>
+                    <div class="logo-text">Peoples Party of Demetheria</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#goals">Goals</a></li>
+                    <li><a href="#leaders">Leadership</a></li>
+                    <li><a href="#channels">Channels</a></li>
+                    <li><a href="#discord">Join Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Unity, Fairness, and Progress for All</h1>
+                <p>The Peoples Party of Demetheria is a roleplay political party dedicated to representing the voice of the people in Demetheria.</p>
+                <a href="#discord" class="btn">Join Our Movement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Party Goals -->
+    <section class="goals" id="goals">
+        <div class="container">
+            <h2 class="section-title">Our Primary Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Military Primacy</h3>
+                    <p>Ensuring strong national defense and security for all Relutians.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Collectivisation of the Economy</h3>
+                    <p>Building an economic system that works for everyone, not just the privileged few.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3>Publicly Owned Food/Media Companies</h3>
+                    <p>Ensuring truth in media and food security for all citizens.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon"><i class="fas fa-home"></i></div>
+                    <h3>Social Housing</h3>
+                    <p>Guaranteeing affordable, quality housing as a fundamental right.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <h3>Equal Rights for All Proper Relutians</h3>
+                    <p>Fighting for justice and equality for every citizen of Relutia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership" id="leaders">
+        <div class="container">
+            <h2 class="section-title">Party Leadership</h2>
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user"></i></div>
+                    <div class="leader-info">
+                        <h3>Jackdiddyfilms</h3>
+                        <div class="leader-role">Chairman</div>
+                        <p>Leading the party with vision and dedication to our core principles.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user"></i></div>
+                    <div class="leader-info">
+                        <h3>Kirington</h3>
+                        <div class="leader-role">Secretary General</div>
+                        <p>Overseeing party operations and organizational structure.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img"><i class="fas fa-user"></i></div>
+                    <div class="leader-info">
+                        <h3>hesxyil</h3>
+                        <div class="leader-role">Secretary Information</div>
+                        <p>Managing party communications and information dissemination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channels Section -->
+    <section class="channels" id="channels">
+        <div class="container">
+            <h2 class="section-title">Party Channels</h2>
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <div class="channel-icon"><i class="fas fa-info-circle"></i></div>
+                    <h3>Information</h3>
+                    <p>General details about our party, its mission, and goals.</p>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-icon"><i class="fas fa-vote-yea"></i></div>
+                    <h3>Elections</h3>
+                    <p>Updates on upcoming elections, party candidates, and results.</p>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-icon"><i class="fas fa-users"></i></div>
+                    <h3>Leaders</h3>
+                    <p>Profiles of past and current party leaders and their achievements.</p>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>Roles</h3>
+                    <p>Explanation of member roles within the party and responsibilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section class="discord" id="discord">
+        <div class="container">
+            <div class="discord-content">
+                <h2>Join Our Discord Community</h2>
+                <p>Connect with fellow party members, participate in discussions, and stay updated on all party activities through our Discord servers.</p>
+                <div class="discord-buttons">
+                    <a href="https://discord.gg/8tEJCjAZbU" class="discord-btn" target="_blank">
+                        <i class="fab fa-discord"></i> Join PPoD Server
+                    </a>
+                    <a href="https://discord.gg/HdbaBBmRQD" class="discord-btn" target="_blank">
+                        <i class="fab fa-discord"></i> Join Demetheria Server
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About PPoD</h3>
+                    <p>The Peoples Party of Demetheria is a left-wing nationalist party operating in the Republic of Relutia, part of the Demetheria nation role-play server.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about" style="color: white;">About Us</a></p>
+                    <p><a href="#goals" style="color: white;">Our Goals</a></p>
+                    <p><a href="#discord" style="color: white;">Join Discord</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Reach out to us through our Discord server for any inquiries or to get involved with the party.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Peoples Party of Demetheria. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
